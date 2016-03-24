@@ -1,0 +1,10 @@
+{
+  "name": "orders_and_customers",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "~4.2.0",
+    "mongodb": "^2.1.11",
+    "mongoose": "latest"
+  }
+}

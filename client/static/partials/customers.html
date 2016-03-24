@@ -1,0 +1,23 @@
+<div id="main" ng-controller="customersController">
+    <form>
+        <h3><u>Add a new Customer</u></h3>
+        <div id='dup' ng-show='isDuplicate()'>{{dup_msg}}</div>
+        Customer Name: <input type="text" ng-model="newCustomer.name"></input>
+        <input type="submit" value="Add" ng-click="createCustomer()"></input><br><br>
+    </form> 
+    <input type="text" placeholder="search name..." ng-model="filter_name"></input>
+    <table>
+        <thead>
+            <th>Customer Name</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cust in customers | filter:filter_name | orderBy:'date'">
+                <td ng-bind="cust.name"></td>
+                <td>{{ cust.created_at | date: 'MMMM dd, yyyy' }}</td>
+                <td><input id="redBtn" type="submit" value="Remove" ng-click="removeCustomer(cust)"></input></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
